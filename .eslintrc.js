@@ -20,7 +20,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'unused-imports', 'import'],
   settings: {
     react: {
       version: 'detect',
@@ -30,6 +30,20 @@ module.exports = {
     },
   },
   rules: {
+    // Error on unused imports
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'error',
+      { 
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used', 
+        argsIgnorePattern: '^_',
+      },
+    ],
+
     // Basic rules
     'no-var': 'error',
     'prefer-const': 'error',
@@ -44,7 +58,6 @@ module.exports = {
     // TypeScript rules
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     

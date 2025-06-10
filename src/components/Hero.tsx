@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, MessageCircle, Bot, Zap, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, MessageCircle, Bot, Zap, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 export function Hero() {
