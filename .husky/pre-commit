@@ -1,4 +1,9 @@
-#!/usr/bin/env sh
-set -e
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
+# Skip if running in CI
+[ -n "$CI" ] && exit 0
+
+# Run lint-staged
+echo "Running lint-staged..."
 npx lint-staged
