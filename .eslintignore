@@ -1,0 +1,14 @@
+.next
+node_modules
+*.md
+*.mdx
+*.html
+*.json
+*.lock
+*.toml
+*.yaml
+*.yml
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+public/

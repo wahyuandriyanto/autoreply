@@ -1,0 +1,20 @@
+# Ignore artifacts:
+.next
+node_modules
+*.md
+*.mdx
+*.html
+*.json
+*.lock
+*.toml
+*.yaml
+*.yml
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore all HTML files:
+*.html
+
+# Ignore files in the public directory:
+public/
