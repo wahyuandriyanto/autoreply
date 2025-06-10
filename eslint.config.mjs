@@ -83,12 +83,22 @@ export default [
     plugins: {
       '@next/next': nextPlugin
     },
-    rules: {
-      ...recommendedRules,
+    rules: Object.assign({}, {
+      // Basic rules
+      'no-debugger': 'warn',
+      'no-duplicate-imports': 'error',
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'prefer-rest-params': 'error',
+      'prefer-spread': 'error',
+      'use-isnan': 'error',
+      'valid-typeof': 'error',
+      
+      // React/Next.js rules
       'react/display-name': 'off',
       'react/no-unescaped-entities': 'off',
       '@next/next/no-img-element': 'off'
-    }
+    })
   },
 
   // TypeScript specific configuration
@@ -107,27 +117,32 @@ export default [
         }
       }
     },
-    rules: {
+    rules: Object.assign({}, {
       // TypeScript specific rules
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-    }
+      // Add more TypeScript rules as needed
+      '@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],
+      '@typescript-eslint/no-var-requires': 'warn'
+    })
   },
 
   // Next.js specific configuration
   {
     files: ['**/*.tsx', '**/*.ts'],
-    rules: {
+    rules: Object.assign({}, {
       // Next.js recommended rules
       '@next/next/no-html-link-for-pages': 'error',
       '@next/next/no-sync-scripts': 'error',
       // Core Web Vitals rules
       '@next/next/no-css-tags': 'warn',
-      '@next/next/no-sync-scripts': 'warn',
-      '@next/next/no-html-link-for-pages': 'warn',
-    },
+      '@next/next/no-img-element': 'off',
+      // Avoid duplicate rule
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off'
+    }),
     settings: {
       react: {
         version: 'detect'
